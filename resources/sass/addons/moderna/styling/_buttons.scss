@@ -1,0 +1,173 @@
+@import "../mixins/buttons";
+
+.btn {
+
+    @each $color,
+    $value in $theme-colors {
+        @if $color=='success'or $color=='warning' {
+
+            &-#{$color},
+            &-#{$color}:focus,
+            &-#{$color}:active,
+            &-#{$color}.active,
+            &-#{$color}:hover,
+            &-outline-#{$color}:focus,
+            &-outline-#{$color}:active,
+            &-outline-#{$color}.active,
+            &-outline-#{$color}:hover {
+                color: $white;
+            }
+        }
+
+        &-dim.btn-#{$color} {
+            @include button-dim($value, $color);
+        }
+
+        &-dim-alt.btn-#{$color} {
+            @include button-dim-alternative($value, $color);
+        }
+    }
+}
+
+.btn-social {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    padding-left: 3.5rem;
+    text-align: left;
+
+    >.icon {
+        position: absolute;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 2.75rem;
+        top: 0;
+        left: 0;
+        @include button-size($btn-padding-y, $btn-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
+        border: 1px solid transparent;
+        height: 100%;
+        border-right-width: 1px;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &.btn-icon > .icon {
+        border-right-width: 0 !important;
+    }
+
+    &.btn-lg {
+        padding-left: 4.5rem;
+        >.icon {
+            width: 3rem;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            @include button-size($btn-padding-y-lg, $btn-padding-x-lg, $btn-font-size-lg, $btn-line-height-lg, $btn-border-radius-lg);
+        }
+    }
+
+    &.btn-sm {
+        padding-left: 3rem;
+        >.icon {
+            width: 2rem;
+            border-top-right-radius: 0 !important;
+            border-bottom-right-radius: 0 !important;
+            @include button-size($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-line-height-sm, $btn-border-radius-sm);
+        }
+    }
+
+    &.btn-adn {
+        @include btn-social(#d87a68, $white, darken(#d87a68, 10%), $white);
+    }
+
+    &.btn-bitbucket {
+        @include btn-social(#205081, $white, darken(#205081, 10%), $white);
+    }
+
+    &.btn-dropbox {
+        @include btn-social(#1087dd, $white, darken(#1087dd, 10%), $white);
+    }
+
+    &.btn-facebook {
+        @include btn-social(#3b5998, $white, darken(#3b5998, 10%), $white);
+    }
+
+    &.btn-flickr {
+        @include btn-social(#ff0084, $white, darken(#ff0084, 10%), $white);
+    }
+
+    &.btn-foursquare {
+        @include btn-social(#f94877, $white, darken(#f94877, 10%), $white);
+    }
+
+    &.btn-github {
+        @include btn-social(#444444, $white, darken(#444444, 10%), $white);
+    }
+
+    &.btn-google {
+        @include btn-social(#dd4b39, $white, darken(#dd4b39, 10%), $white);
+    }
+
+    &.btn-instagram {
+        @include btn-social(#3f729b, $white, darken(#3f729b, 10%), $white);
+    }
+
+    &.btn-linkedin {
+        @include btn-social(#007bb6, $white, darken(#007bb6, 10%), $white);
+    }
+
+    &.btn-microsoft {
+        @include btn-social(#2672ec, $white, darken(#2672ec, 10%), $white);
+    }
+
+    &.btn-odnoklassniki {
+        @include btn-social(#f4731c, $white, darken(#f4731c, 10%), $white);
+    }
+
+    &.btn-openid {
+        @include btn-social(#f7931e, $white, darken(#f7931e, 10%), $white);
+    }
+
+    &.btn-pinterest {
+        @include btn-social(#cb2027, $white, darken(#cb2027, 10%), $white);
+    }
+
+    &.btn-reddit {
+        @include btn-social(#eff7ff, $dark, darken(#eff7ff, 2%), $dark);
+    }
+
+    &.btn-soundcloud {
+        @include btn-social(#ff5500, $white, darken(#ff5500, 10%), $white);
+    }
+
+    &.btn-tumblr {
+        @include btn-social(#2c4762, $white, darken(#2c4762, 10%), $white);
+    }
+
+    &.btn-twitter {
+        @include btn-social(#55acee, $white, darken(#55acee, 10%), $white);
+    }
+
+    &.btn-vimeo {
+        @include btn-social(#1ab7ea, $white, darken(#1ab7ea, 10%), $white);
+    }
+
+    &.btn-vk {
+        @include btn-social(#587ea3, $white, darken(#587ea3, 10%), $white);
+    }
+
+    &.btn-yahoo {
+        @include btn-social(#720e9e, $white, darken(#720e9e, 10%), $white);
+    }
+}
+
+.dropdown {
+    &.no-arrow {
+        .btn, a, button {
+            &:after {
+                display: none !important;
+                width: 0 !important;
+            }
+        }
+    }
+}

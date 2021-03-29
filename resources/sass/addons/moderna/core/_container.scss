@@ -1,0 +1,29 @@
+.sidebar-fixed {
+    display: flex;
+    min-height: 100vh;
+
+    .wrap-container {
+        background-color: $white;
+        margin-left: $sidebar-wrapper-width-lg;
+        width: calc(100% - #{$sidebar-wrapper-width-lg});
+        display: flex;
+        flex-direction: column;
+        
+        @include media-breakpoint-down('sm') {
+            width: 100%;
+            margin: 0;
+        }
+
+        @include media-breakpoint-up('sm') {
+            .toggled & {
+                width: 100%;
+                margin: 0;
+            }
+        }
+        
+        >.content {
+            padding-top: 1rem;
+            flex-grow: 1;
+        }
+    }
+}

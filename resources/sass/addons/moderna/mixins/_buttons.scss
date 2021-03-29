@@ -1,0 +1,63 @@
+@mixin button-dim-alternative($background, $color-name) {
+    color: $white;
+    border-color: transparent;
+    background: rgba($white, .1);
+
+    @include hover() {
+        @if $color-name == 'light' {
+            color: $dark;
+        } @else {
+            color: $white;
+        }
+        background-color: $background;
+        border-color: $background
+    }
+}
+
+@mixin button-dim($background, $color-name) {
+    @if $color-name == 'light' {
+        color: $dark;
+    } @else {
+        color: $background;
+    }
+
+    border-color: transparent;
+    background: rgba($background, .1);
+
+    @include hover() {
+        @if $color-name == 'light' {
+            color: $dark;
+        } @else {
+            color: $white;
+        }
+        background-color: $background;
+        border-color: $background;
+    }
+}
+
+@mixin btn-social($background, $color: '#fff', $hover-background, $hover-color: '#fff') {
+    background-color: $background;
+    color: $color;
+    border-color: $background;
+
+    @include hover() {
+        background-color: $hover-background;
+        color: $hover-color;
+        border-color: $hover-background;
+
+        >.icon {
+            border-right-color: darken($background, 20%);
+        }
+    }
+
+    &.active,
+    &:active,
+    &:focus,
+    &.focus {
+        box-shadow: 0 0 0 $btn-focus-width rgba($hover-background, .5);
+    }
+
+    >.icon {
+        border-right-color: darken($background, 10%);
+    }
+}

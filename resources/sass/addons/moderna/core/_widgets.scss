@@ -1,0 +1,236 @@
+.card {
+    &.card-widgets {
+
+        &.card-widgets_summary {
+            border: 0;
+            box-shadow: $box-shadow-sm !important;
+            display: flex;
+            flex-direction: row;
+            padding: 0.75rem 1rem;
+            align-items: center;
+
+            @include media-breakpoint-down('md') {
+                margin-bottom: .5rem;
+            }
+
+            >.icon {
+                display: flex;
+                width: 60px;
+                height: 60px;
+                align-items: center;
+                font-size: 2rem;
+                border-radius: 5px;
+                justify-content: center;
+            }
+
+            >.content {
+                margin-left: 1rem;
+
+                .title {
+                    font-size: 1.25rem;
+                    font-weight: bold;
+                    color: $gray-700;
+                    margin-bottom: 0.25rem;
+                }
+
+                .subtitle {
+                    margin: 0;
+                    color: $gray-500;
+                }
+            }
+
+            @each $color,
+            $value in $theme-colors {
+                &-#{$color} {
+                    >.icon {
+                        background-color: $value;
+
+                        @if $color=='light' {
+                            color: $dark;
+                        }
+
+                        @else {
+                            color: $white;
+                        }
+                    }
+                }
+
+                &-outline-#{$color} {
+                    >.icon {
+                        border: 1px solid $value;
+                        color: $value;
+                    }
+                }
+
+                &-#{$color}.card-widgets_summary-inverse {
+                    background-color: $value;
+
+                    @if $color=='light' {
+                        color: $dark;
+                    }
+
+                    @else {
+                        color: $white;
+                    }
+
+                    >.icon {
+                        @if $color=='light' {
+                            border-color: $dark;
+                        }
+
+                        @else {
+                            background: $white;
+                        }
+
+                        color: $value;
+                    }
+
+                    >.content {
+
+                        .title,
+                        .subtitle {
+                            @if $color=='light' {
+                                color: $dark;
+                            }
+
+                            @else {
+                                color: $white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &.card-widgets_classroom {
+            border: 0;
+            margin-bottom: 1rem;
+
+            .card-header {
+                border: 1px solid rgba(0, 0, 0, 0.125);
+                background-size: cover !important;
+                border-radius: 5px 5px 0 0 !important;
+                background-repeat: no-repeat !important;
+                background-position: center center !important;
+
+                .widget-title_wrapper {
+                    display: flex;
+                    flex-direction: row;
+                    margin-bottom: -2rem;
+                    margin-top: .5rem;
+
+                    .widget-title_icon {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid rgba(0, 0, 0, 0.125);
+                        width: 75px;
+                        height: 75px;
+                        border-radius: 50px;
+                        background: white;
+                    }
+
+                    .widget-desc {
+                        margin-left: 1rem;
+
+                        .mapel {
+                            font-weight: bold;
+                            margin-bottom: 0;
+                        }
+                    }
+                }
+
+                &.card-header-bg {
+                    border-color: transparent !important;
+                }
+
+                .dropdown.action {
+                    position: absolute;
+                    top: 1rem;
+                    right: 1rem;
+
+                    a, .btn, button {
+                        &::after {
+                            display: none !important;
+                            width: 0 !important;
+                        }
+                    }
+                }
+            }
+
+            @each $color,
+            $value in $theme-colors {
+                &-#{$color} {
+                    .card-header {
+                        background-color: $value;
+                        border-color: $value;
+
+                        @if $color == 'light' {
+                            color: $dark;
+                        }
+
+                        @else {
+                            color: $white;
+                        }
+
+                        .widget-title_icon {
+                            background-color: $value !important;
+                            border: 3px solid $white !important;
+                        }
+
+                        .dropdown.action {
+                            >a, >.btn, >button {
+                                @if $color == 'light' {
+                                    color: $dark;
+                                }
+        
+                                @else {
+                                    color: $white;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            .card-body {
+                border-top: 0 solid rgba(0, 0, 0, 0.125);
+                border-left: 1px solid rgba(0, 0, 0, 0.125);
+                border-right: 1px solid rgba(0, 0, 0, 0.125);
+                border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+                border-radius: 0 0 0.25rem 0.25rem;
+                padding: 2rem 0 0 0 !important;
+
+                .title {
+                    padding: 0 1.25rem;
+                    margin-bottom: .5rem;
+                }
+
+                .list-tugas {
+                    border: 0;
+                    border-radius: 0;
+
+                    .list-group-item {
+                        border: 0 !important;
+                        color: $dark;
+                        text-decoration: none;
+                        border-bottom: 1px solid rgba(0, 0, 0, 0.125) !important;
+
+                        &:last-child {
+                            border-radius: 0 0 .25rem .25rem;
+                            border-bottom: 0 !important;
+                        }
+
+                        &:first-child {
+                            border-top: 1px solid rgba(0, 0, 0, 0.125) !important;
+                        }
+
+                        &:hover {
+                            background: rgba($dark, .1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code&family=Rubik&display=swap');
+
+// Addons
+@import './addons/nprogress.css';
+@import "vue-select/src/scss/vue-select.scss";
+
+// Bootstrap
+@import 'variables';
+@import '~bootstrap/scss/bootstrap';
+@import './addons/moderna/moderna.scss';
+@import 'bootstrap-vue/dist/bootstrap-vue.css'

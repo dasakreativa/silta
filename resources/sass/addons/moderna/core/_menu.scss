@@ -1,0 +1,143 @@
+.sidebar-fixed {
+    .sidebar {
+        &-light {
+            .sidebar-menu {
+                flex: 1;
+                padding: 1.5rem 1rem;
+                list-style: none;
+                margin-bottom: 0;
+
+                .nav-title {
+                    position: relative;
+                    display: block;
+                    height: 1px;
+                    background: $gray-300;
+                    margin: 1rem 0 1.5rem;
+
+                    &:not(:first-child) {
+                        margin-top: 2rem;
+                    }
+
+                    span {
+                        position: absolute;
+                        background: $gray-100;
+                        padding: .2rem .5rem;
+                        margin-top: -.9rem;
+                        border-radius: 5px;
+                        margin-left: 1rem;
+                        border: 1px solid $gray-300;
+                        font-size: .75rem;
+                    }
+                }
+
+                >.nav-item {
+                    &.active {
+                        >.nav-link {
+                            background-color: $primary;
+                            color: $white;
+
+                            .right svg[data-icon="chevron-right"] {
+                                transition: .3s all;
+                                transform: rotate(90deg);
+                            }
+                        }
+                    }
+
+                    >.nav-link {
+                        display: flex;
+                        color: $gray-600;
+                        justify-content: space-between;
+                        align-items: center;
+                        transition: .3s all;
+                        border-radius: 50px;
+
+                        // Action Buttons
+                        &:hover {
+                            background-color: rgba($primary, .1);
+                            color: $gray-600;
+                        }
+
+                        &:active,
+                        &.active,
+                        &:focus {
+                            background-color: $primary;
+                            color: $white;
+                        }
+
+                        // For Inner Items
+                        .left {
+                            display: flex;
+
+                            .icon {
+                                width: 1.25rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                            }
+                        }
+
+                        .right svg[data-icon="chevron-right"] {
+                            transition: .3s all;
+                            transform: rotate(0);
+                        }
+                    }
+
+                    .sidebar-container {
+                        padding-inline-start: 1.5rem;
+
+                        .nav {
+                            display: flex;
+                            flex-direction: column;
+
+                            .nav-item {
+                                &.active {
+                                    >.nav-link {
+                                        color: $primary;
+
+                                        .right svg[data-icon="chevron-right"] {
+                                            transform: rotate(90deg);
+                                        }
+                                    }
+                                }
+
+                                .nav-link {
+                                    display: flex;
+                                    color: $gray-600;
+                                    justify-content: space-between;
+                                    align-items: center;
+                                    transition: .3s all;
+                                    border-radius: 50px;
+
+                                    // Action Buttons
+                                    &:hover,
+                                    &:active,
+                                    &.active,
+                                    &:focus {
+                                        color: $primary;
+                                    }
+
+                                    // For Inner Items
+                                    .left {
+                                        display: flex;
+
+                                        .icon {
+                                            width: 1.25rem;
+                                            display: flex;
+                                            align-items: center;
+                                            justify-content: center;
+                                        }
+                                    }
+
+                                    .right svg[data-icon="chevron-right"] {
+                                        transition: .3s all;
+                                        transform: rotate(0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

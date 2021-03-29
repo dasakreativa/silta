@@ -1,0 +1,32 @@
+@each $color,
+$value in $theme-colors {
+    .bg-hover-#{$color}:hover {
+        background: $value !important;
+
+        @if $color == 'light' {
+            color: $dark !important;
+        } @else {
+            color: $white !important;
+        }
+    }
+
+    .bg-focus-#{$color}:focus {
+        background: $value !important;
+
+        @if $color == 'light' {
+            color: $dark !important;
+        } @else {
+            color: $white !important;
+        }
+    }
+
+    .bg-focus-#{$color}:active {
+        background: $value !important;
+
+        @if $color == 'light' {
+            color: $dark !important;
+        } @else {
+            color: $white !important;
+        }
+    }
+}

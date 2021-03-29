@@ -1,0 +1,54 @@
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    font-size: 1.25rem;
+
+    &-xs {
+        font-size: .75rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    &-sm {
+        font-size: 1.25rem;
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
+    &-lg {
+        font-size: 2rem;
+        width: 5.25rem;
+        height: 5.25rem;
+    }
+
+    &-xl {
+        font-size: 2.5rem;
+        width: 6.5rem;
+        height: 6.5rem;
+    }
+
+    @each $color, $value in $theme-colors {
+        &-#{$color} {
+            background-color: $value;
+
+            @if $color == 'light' {
+                color: $dark;
+            } @else {
+                color: $white;
+            }
+        }
+        &-dim-#{$color} {
+            background-color: rgba($value, .2);
+
+            @if $color == 'light' {
+                color: $dark;
+            } @else {
+                color: $value;
+            }
+        }
+    }
+}

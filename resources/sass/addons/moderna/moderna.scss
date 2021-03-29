@@ -1,0 +1,52 @@
+// For Admin Variable
+$login-wrapper-width-lg:    30rem;
+$login-wrapper-width-sm:    22rem;
+$sidebar-wrapper-width-lg:  21.5rem;
+$sidebar-wrapper-width-sm:  4.375rem;
+
+// Core
+@import "core/container";
+@import "core/main";
+@import "core/menu";
+@import "core/navbar";
+@import "core/scrollbar";
+@import "core/widgets";
+
+// Pages
+@import "pages/errors";
+@import "pages/login";
+
+// Styling
+@import "styling/alerts";
+@import "styling/avatar";
+@import "styling/animation";
+@import "styling/background";
+@import "styling/borders";
+@import "styling/buttons";
+@import "styling/forms";
+@import "styling/navs";
+
+body {
+    font-family: 'Rubik', 'Segoe UI', Arial, Helvetica, sans-serif;
+    background: $gray-100;
+    color: $gray-700;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+
+    &-track {
+        background: $gray-500;
+    }
+    
+    &-thumb {
+        background-color: $gray-700;
+        border-radius: 20px;
+        border: 3px solid $gray-500;
+
+        &:hover {
+            background-color: $gray-800;
+        }
+    }
+}

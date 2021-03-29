@@ -1,0 +1,131 @@
+@mixin alert-variant-custom($background, $border, $color) {
+    @if $background=='light' {
+        color: darken(map-get($theme-colors, $background), 50%);
+        border-color: darken($light, 15%);
+    }
+
+    @else {
+        color: lighten(map-get($theme-colors, $background), 50%);
+        border-color: $border;
+    }
+
+    background: map-get($theme-colors, $background);
+
+    hr {
+        border-top-color: lighten($border, 5%);
+    }
+
+    .alert-link {
+        color: lighten($color, 10%);
+    }
+
+    .close {
+        text-shadow: none !important;
+
+        &:hover {
+            @if $background=='light' {
+                color: $dark;
+            }
+
+            @else {
+                color: $white;
+            }
+        }
+    }
+}
+
+@mixin alert-dimmed-color($background, $border, $color) {
+    @if $background=='light' {
+        border-color: darken($light, 15%);
+    }
+
+    @else {
+        border-color: $border;
+    }
+
+    color: $color;
+    background: rgba(map-get($theme-colors, $background), .25);
+
+    hr {
+        border-top-color: darken($border, 5%);
+    }
+
+    .alert-link {
+        color: darken($color, 10%);
+    }
+
+    .close {
+        text-shadow: none !important;
+
+        &:hover {
+            color: $dark;
+        }
+    }
+}
+
+@mixin alert-icon-color($background) {
+    @if $background=='light' {
+        color: rgba($black, .15);
+    }
+
+    @else {
+        color: rgba($white, .15);
+    }
+
+    position: absolute;
+    font-size: 7.5rem;
+    top: -2rem;
+    left: -1rem;
+}
+
+@mixin alert-icon-dim-color($background) {
+    color: rgba($black, .15);
+    position: absolute;
+    font-size: 7.5rem;
+    top: -2rem;
+    left: -1rem;
+}
+
+@mixin alert-alt($background, $color) {
+    padding-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    border-color: $background;
+
+    .alert-wrap {
+        display: flex;
+        color: $dark;
+
+        .icon-wrapper {
+            padding: .75rem 1.25rem;
+            margin-right: 1.25rem;
+            font-size: 2rem;
+            background-color: $background;
+
+            @if $color == 'light' {
+                color: $dark;
+            }
+
+            @else {
+                color: $white;
+            }
+        }
+
+        .content {
+            padding: .75rem 0;
+            flex: 1;
+
+            .title {
+                color: $background;
+            }
+        }
+    }
+
+    .close {
+        color: $dark !important;
+
+        &:hover {
+            color: $dark;
+        }
+    }
+}

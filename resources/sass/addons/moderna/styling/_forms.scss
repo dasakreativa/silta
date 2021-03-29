@@ -1,0 +1,100 @@
+.form-control {
+    &:focus {
+        border-color: $primary;
+    }
+}
+
+.form-floating {
+    position: relative;
+    flex: 1;
+
+    &.bg-body {
+
+        >label.label,
+        .form-control {
+            background-color: $gray-100;
+        }
+    }
+
+    >label.label {
+        position: absolute;
+        top: -.65rem;
+        left: .75rem;
+        margin-bottom: 0;
+        padding: .01rem .5rem;
+        background-color: $white;
+        color: $gray-600;
+        font-size: .75rem;
+        font-weight: normal;
+        cursor: pointer;
+        z-index: 3;
+        transition: .3s all;
+    }
+
+    .form-control {
+        &:placeholder-shown:not(:focus)~label {
+            top: .425rem;
+            left: .75rem;
+            font-size: .9rem;
+            color: $gray-600;
+            padding: 0;
+        }
+
+        &:not(:focus) {
+            &::placeholder {
+                color: transparent;
+            }
+        }
+
+        &::-ms-clear {
+            display: none;
+        }
+
+        &.is-invalid + label,
+        &.is-invalid:placeholder-shown {
+            color: $danger !important;
+        }
+
+        &.is-valid + label,
+        &.is-valid:placeholder-shown {
+            color: $success !important;
+        }
+    }
+}
+
+.input-group {
+    .form-floating {
+        .form-control {
+            width: 100%;
+            border-radius: 0.25rem;
+        }
+
+        &:not(:last-child) {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            border-right: 0;
+        }
+
+        &:not(:first-child) {
+            border-bottom-left-radius: 0;
+            border-top-left-radius: 0;
+        }
+    }
+
+    .form-floating {
+        &:not(:last-child) {
+            .form-control {
+                border-bottom-right-radius: 0;
+                border-top-right-radius: 0;
+                border-right: 0;
+            }
+        }
+
+        &:not(:first-child) {
+            .form-control {
+                border-bottom-left-radius: 0;
+                border-top-left-radius: 0;
+            }
+        }
+    }
+}
